@@ -1,11 +1,11 @@
-﻿@model IEnumerable<Product>
-<!--
+﻿<!--
 I converted the Price property to a string using the ToString("c") method, which renders numerical
 values as currency according to the culture settings that are in effect on your server. For example, if the server
 is set up as en-US, then (1002.3).ToString("c") will return $1,002.30, but if the server is set to en-GB, then
 the same method will return £1,002.30.
             -->
-@foreach (var p in Model)
+@model ProductsListViewModel
+@foreach (var p in Model.Products)
 {
     <div>
         <h3>@p.Name</h3>
@@ -13,3 +13,4 @@ the same method will return £1,002.30.
         <h4>@p.Price.ToString("c")</h4>
     </div>
 }
+<div page-model="@Model.PagingInfo" page-action="List"></div>
