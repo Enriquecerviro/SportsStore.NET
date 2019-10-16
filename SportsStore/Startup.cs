@@ -44,6 +44,7 @@ public class Startup
         {
             endpoints.MapControllerRoute("default", "{controller=Product}/{action=List}/{id?}");
         });
+        SeedData.EnsurePopulated(app);
 
     }
 }
