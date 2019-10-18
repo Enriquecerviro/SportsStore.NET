@@ -6,16 +6,33 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 using SportsStore.Models.ViewModels;
 namespace SportsStore.Infrastructure
 {
+    #region TAG HELPER CLASS "PageLinkTagHelper"    
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="Microsoft.AspNetCore.Razor.TagHelpers.TagHelper" />
     [HtmlTargetElement("div", Attributes = "page-model")]
     public class PageLinkTagHelper : TagHelper
+       
     {
         private IUrlHelperFactory urlHelperFactory;
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PageLinkTagHelper"/> class.
+        /// </summary>
+        /// <param name="helperFactory">The helper factory.</param>
         public PageLinkTagHelper(IUrlHelperFactory helperFactory)
         {
             urlHelperFactory = helperFactory;
         }
+        /// <summary>
+        /// Gets or sets the view context.
+        /// </summary>
+        /// <value>
+        /// The view context.
+        /// </value>
         [ViewContext]
         [HtmlAttributeNotBound]
+        
         public ViewContext ViewContext { get; set; }
         public PagingInfo PageModel { get; set; }
         public string PageAction { get; set; }

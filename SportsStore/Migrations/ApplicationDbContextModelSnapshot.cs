@@ -7,6 +7,10 @@ using SportsStore.Models;
 
 namespace SportsStore.Migrations
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="Microsoft.EntityFrameworkCore.Infrastructure.ModelSnapshot" />
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
     {

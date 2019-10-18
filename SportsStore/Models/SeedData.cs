@@ -8,8 +8,26 @@ using Microsoft.EntityFrameworkCore;
 
 namespace SportsStore.Models
 {
+    #region SeedData Class    
+    /// <summary>
+    /// Clase que provee a la DB de los datos necesarios
+    /// </summary>
     public class SeedData
     {
+        /// <summary>
+        /// Ensures the populated. Este mth. recibe un argumento IApplicationBuilder, que 
+        /// es la interfaz usada en el mth `Configure` de la clase `Startup` para registrar los
+        /// componentes middleware para manejar las peticiones HTTP, asi que aqui es donde aseguro
+        /// que la DB tiene contenido.
+        /// </summary>
+        /// <remarks>
+        /// El Mth. EnsurePopulated obtiene un objeto ApplicationDbContext a través de la interfaz IApplicationBuilder
+        /// y llama a la Database.Migrate para asegurar que la migracion ha sido aplicada, lo que significa que la DB
+        /// se creará y se preparará así se podrán almacenar objetos Product, lo siguiente chequea que el numero de objetos Product,
+        /// si no hay objetos, entonces la DB es llenada con una collecion de objetos Product usando el mth. AddRange() y guardando con SaveChanges()
+        /// Lo último es servir a la DB cuando la app starts, que se hace con la llamada al mth `EnsurePopulated()` desde la clase Startup.
+        /// </remarks>
+        /// <param name="app">The application.</param>
         public static void EnsurePopulated(IApplicationBuilder app)
         {
             ApplicationDbContext context = app.ApplicationServices
@@ -86,4 +104,5 @@ namespace SportsStore.Models
             }
         }
     }
+    #endregion
 }
