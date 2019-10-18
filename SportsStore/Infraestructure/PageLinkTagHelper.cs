@@ -8,7 +8,7 @@ namespace SportsStore.Infrastructure
 {
     #region TAG HELPER CLASS "PageLinkTagHelper"    
     /// <summary>
-    /// 
+    /// Este TagHelper llena un elemento div con elementos que corresponden a los productos por pagina.
     /// </summary>
     /// <seealso cref="Microsoft.AspNetCore.Razor.TagHelpers.TagHelper" />
     [HtmlTargetElement("div", Attributes = "page-model")]
@@ -32,17 +32,55 @@ namespace SportsStore.Infrastructure
         /// </value>
         [ViewContext]
         [HtmlAttributeNotBound]
-        
         public ViewContext ViewContext { get; set; }
+        /// <summary>
+        /// Gets or sets the page model.
+        /// </summary>
+        /// <value>
+        /// The page model.
+        /// </value>
         public PagingInfo PageModel { get; set; }
+        /// <summary>
+        /// Gets or sets the page action.
+        /// </summary>
+        /// <value>
+        /// The page action.
+        /// </value>
         public string PageAction { get; set; }
-
+        /// <summary>
+        /// Gets or sets a value indicating whether [page classes enable].
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if [page classes enable]; otherwise, <c>false</c>.
+        /// </value>
         public bool PageClassesEnable { get; set; } = false;
-
+        /// <summary>
+        /// Gets or sets the page class.
+        /// </summary>
+        /// <value>
+        /// The page class.
+        /// </value>
         public string PageClass { get; set; }
+        /// <summary>
+        /// Gets or sets the page class normal.
+        /// </summary>
+        /// <value>
+        /// The page class normal.
+        /// </value>
         public string PageClassNormal { get; set; }
+        /// <summary>
+        /// Gets or sets the page class selected.
+        /// </summary>
+        /// <value>
+        /// The page class selected.
+        /// </value>
         public string PageClassSelected { get; set; }
-        
+        /// <summary>
+        /// Synchronously executes the <see cref="T:Microsoft.AspNetCore.Razor.TagHelpers.TagHelper" /> with the given <paramref name="context" /> and
+        /// <paramref name="output" />.
+        /// </summary>
+        /// <param name="context">Contains information associated with the current HTML tag.</param>
+        /// <param name="output">A stateful HTML element used to generate an HTML tag.</param>
         public override void Process(TagHelperContext context,
         TagHelperOutput output)
         {
@@ -64,4 +102,5 @@ namespace SportsStore.Infrastructure
             output.Content.AppendHtml(result.InnerHtml);
         }
     }
+    #endregion
 }

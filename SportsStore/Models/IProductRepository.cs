@@ -14,7 +14,13 @@ namespace SportsStore.Models
     /// </summary>
     public interface IProductRepository
     {
-          IQueryable<Product> Products { get; }
+        /// <summary>
+        /// Gets the products.
+        /// </summary>
+        /// <value>
+        /// The products.
+        /// </value>
+        IQueryable<Product> Products { get; }
     }
     #endregion
 }

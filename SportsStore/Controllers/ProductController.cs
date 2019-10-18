@@ -49,6 +49,10 @@ namespace SportsStore.Controllers
         /// List(1). El efecto conseguido es que cuando se invoque sin argumentos siempre renderize la primera página.
         /// Dentro del cuerpo del mth consigo los objetos Product, ordenados por la clave primaria, desechamos los objetos Producto
         /// que ocurren antes de la pagina actual y coje la cantidad de objetos especificados por el campo `PageSize`
+        /// <para>
+        /// Hemos modificado el mth List() para usar la clase ProductsListViewModel y así proveer a la vista de los detalles de los productos
+        /// y detalles de la paginación.
+        /// </para>
         /// </summary>
         /// <param name="category">The category.</param>
         /// <param name="productPage">The product page.</param>
