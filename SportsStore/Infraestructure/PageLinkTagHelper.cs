@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using SportsStore.Models.ViewModels;
+using System.Collections.Generic;
+
 namespace SportsStore.Infrastructure
 {
     #region TAG HELPER CLASS "PageLinkTagHelper"    
@@ -13,7 +15,7 @@ namespace SportsStore.Infrastructure
     /// <seealso cref="Microsoft.AspNetCore.Razor.TagHelpers.TagHelper" />
     [HtmlTargetElement("div", Attributes = "page-model")]
     public class PageLinkTagHelper : TagHelper
-       
+
     {
         private IUrlHelperFactory urlHelperFactory;
         /// <summary>
@@ -47,6 +49,15 @@ namespace SportsStore.Infrastructure
         /// The page action.
         /// </value>
         public string PageAction { get; set; }
+        /// <summary>
+        /// Gets or sets the page URL values.
+        /// </summary>
+        /// <value>
+        /// The page URL values.
+        /// </value>
+        [HtmlAttributeName(DictionaryAttributePrefix = "page-url-")]
+        public Dictionary<string, object> PageUrlValues { get; set; }
+            = new Dictionary<string, object>();
         /// <summary>
         /// Gets or sets a value indicating whether [page classes enable].
         /// </summary>
@@ -89,8 +100,9 @@ namespace SportsStore.Infrastructure
             for (int i = 1; i <= PageModel.TotalPages; i++)
             {
                 TagBuilder tag = new TagBuilder("a");
-                tag.Attributes["href"] = urlHelper.Action(PageAction,
-                new { productPage = i });
+                PageUrlValues["productPage"] = i;
+                tag.Attributes["href"] = urlHelper.Action(PageAction, PageUrlValues);
+                
                 if (PageClassesEnable)
                 {
                     tag.AddCssClass(PageClass);

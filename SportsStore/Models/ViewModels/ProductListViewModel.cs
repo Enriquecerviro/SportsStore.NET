@@ -32,6 +32,7 @@ namespace SportsStore.Models.ViewModels
         /// The current category.
         /// </value>
         public string CurrentCategory { get; set; }
+
     }
     #endregion
 }

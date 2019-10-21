@@ -58,7 +58,7 @@ public class Startup
     /// </remarks>
     /// <param name="services">The services.</param>
     public void ConfigureServices(IServiceCollection services)
-    { 
+    {
         services.AddDbContext<ApplicationDbContext>(options =>
         options.UseSqlServer(
             Configuration.GetConnectionString("DefaultConnection")));
@@ -95,6 +95,40 @@ public class Startup
 
         app.UseEndpoints(endpoints =>
         {
+            endpoints.MapControllerRoute(
+                name: null,
+                pattern: "{category}/Page{productPage:int}",
+                defaults: new { controller = "Product", action = "List" }
+            );
+            endpoints.MapControllerRoute(
+                name: null,
+                pattern: "Page{productPage:int}",
+                defaults: new
+                {
+                    controller = "Product",
+                    action = "List",
+                    productPage = 1
+                }
+            );
+            endpoints.MapControllerRoute(
+            name: null,
+            pattern: "{category}",
+            defaults: new
+            {
+                controller = "Product",
+                action = "List",
+                productPage = 1
+            }
+            );
+            endpoints.MapControllerRoute(
+            name: null,
+            pattern: "",
+            defaults: new
+            {
+                controller = "Product",
+                action = "List",
+                productPage = 1
+            });
             endpoints.MapControllerRoute("default", "{controller=Product}/{action=List}/{id?}");
         });
         SeedData.EnsurePopulated(app);
