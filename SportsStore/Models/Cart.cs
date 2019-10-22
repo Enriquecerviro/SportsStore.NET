@@ -21,8 +21,7 @@ namespace SportsStore.Models
             CartLine line = lineCollection
                 .Where(p => p.Product.ProductID == product.ProductID)
                 .FirstOrDefault();
-
-            if(line== null)
+            if (line == null)
             {
                 lineCollection.Add(new CartLine
                 {

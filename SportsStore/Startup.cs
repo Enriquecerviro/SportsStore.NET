@@ -66,6 +66,8 @@ public class Startup
         services.AddTransient<IProductRepository, EFProductRepository>();
 
         services.AddMvc();
+        services.AddMemoryCache();
+        services.AddSession();
 
     }
     #endregion
@@ -91,7 +93,9 @@ public class Startup
 
         app.UseStatusCodePages();
         app.UseStaticFiles();
+        app.UseSession();
         app.UseRouting();
+        
 
         app.UseEndpoints(endpoints =>
         {
@@ -111,24 +115,25 @@ public class Startup
                 }
             );
             endpoints.MapControllerRoute(
-            name: null,
-            pattern: "{category}",
-            defaults: new
-            {
-                controller = "Product",
-                action = "List",
-                productPage = 1
-            }
+                name: null,
+                pattern: "{category}",
+                defaults: new
+                {
+                    controller = "Product",
+                    action = "List",
+                    productPage = 1
+                }
             );
             endpoints.MapControllerRoute(
-            name: null,
-            pattern: "",
-            defaults: new
-            {
-                controller = "Product",
-                action = "List",
-                productPage = 1
-            });
+                name: null,
+                pattern: "",
+                defaults: new
+                {
+                    controller = "Product",
+                    action = "List",
+                    productPage = 1
+                }
+            );
             endpoints.MapControllerRoute("default", "{controller=Product}/{action=List}/{id?}");
         });
         SeedData.EnsurePopulated(app);
