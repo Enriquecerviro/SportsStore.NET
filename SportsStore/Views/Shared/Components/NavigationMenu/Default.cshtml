@@ -1,6 +1,4 @@
-﻿@Model IEnumerable<string>
-
-
+﻿
     <a class="btn btn-block btn-secondary"
         asp-action="List"
         asp-controller="Product"
@@ -10,7 +8,9 @@
 
     @foreach( string category in Model)
     {
-        <a class="btn btn-block btn-secondary"
+        
+        <a class="btn btn-block 
+           @(category==ViewBag.SelectedCategory ? "btn-primary": "btn-secondary")"
            asp-action="List"
            asp-controller="Product"
            asp-route-category="@category"
