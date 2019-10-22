@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace SportsStore.Components
 {
-    public class CartsummaryViewComponent : ViewComponent
+    public class CartSummaryViewComponent : ViewComponent
     {
         private Cart cart;
 
-        public CartsummaryViewComponent(Cart cartService)
+        public CartSummaryViewComponent(Cart cartService)
         {
             cart = cartService;
         }
