@@ -15,6 +15,10 @@
       "provider": "unpkg",
       "library": "bootstrap@4.3.1",
       "destination": "wwwroot/lib/bootstrap/"
+    },
+    {
+      "library": "fontawesome-iconpicker@3.2.0",
+        "destination": "wwwroot/lib/bootstrap/"
     }
 
   ]
