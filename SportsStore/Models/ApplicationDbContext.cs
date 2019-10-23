@@ -30,6 +30,13 @@ namespace SportsStore.Models
         /// The products.
         /// </value>
         public DbSet<Product> Products { get; set; }
+        /// <summary>
+        /// Gets or sets the orders.
+        /// </summary>
+        /// <value>
+        /// The orders.
+        /// </value>
+        public DbSet<Order> Orders { get; set; }
     }
     #endregion
 }
