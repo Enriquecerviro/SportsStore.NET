@@ -9,7 +9,7 @@
           asp-href-exclude="**/*-reboot*,**/*-grid*" />
     <link rel="stylesheet" asp-href-include="/lib/fontawesome/css/*.css" />
     <link rel="stylesheet" asp-href-include="/lib/bootstrap/css/bulma.css" />
-    <link rel="stylesheet" asp-href-include="/lib/bootstrap/js/src/*.js"/>
+    <link rel="stylesheet" asp-href-include="/lib/bootstrap/css/Botones.css "/>
 </head>
 <body>
 
@@ -42,28 +42,13 @@
                     </a>
 
                     <div class="navbar-dropdown">
-                        <a class="navbar-item">
-                            About
-                        </a>
-                        <a class="navbar-item">
-                            Jobs
-                        </a>
-                        <a class="navbar-item">
-                            Contact
-                        </a>
-                        <hr class="navbar-divider">
-                        <a class="navbar-item">
-                            Report an issue
-                        </a>
+                        @await Component.InvokeAsync("NavigationMenu")
                     </div>
                 </div>
             </div>
 
-            <div class="navbar-item">
-                
+            <div class="navbar-item">             
                 @await Component.InvokeAsync("CartSummary")
-
-
             </div>
 
             <div class="navbar-end">
@@ -83,7 +68,7 @@
 
     <div class="row m-1 p-1">
         <div id="categories" class="col-3">
-            @await Component.InvokeAsync("NavigationMenu")
+           
         </div>
         <div class="col-9">
             @RenderBody()
