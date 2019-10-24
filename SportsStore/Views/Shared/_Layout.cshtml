@@ -9,6 +9,7 @@
           asp-href-exclude="**/*-reboot*,**/*-grid*" />
     <link rel="stylesheet" asp-href-include="/lib/fontawesome/css/*.css" />
     <link rel="stylesheet" asp-href-include="/lib/bootstrap/css/bulma.css" />
+    <link rel="stylesheet" asp-href-include="/lib/bootstrap/js/src/*.js"/>
 </head>
 <body>
 
@@ -60,9 +61,9 @@
 
             <div class="navbar-item">
                 
-                    <img src="~/lib/Images/cart.png" />
-                    @await Component.InvokeAsync("CartSummary")
-                
+                @await Component.InvokeAsync("CartSummary")
+
+
             </div>
 
             <div class="navbar-end">

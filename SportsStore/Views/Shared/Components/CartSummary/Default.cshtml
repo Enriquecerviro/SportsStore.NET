@@ -1,6 +1,7 @@
 ﻿@model Cart
 
 <div class="">
+    
     @if (Model.Lines.Count() > 0)
     {
         <small class="navbar-text">
@@ -9,9 +10,9 @@
             @Model.ComputeTotalValue().ToString("c")
         </small>
     }
-    <a class="btn btn-sm btn-secondary navbar-btn"
+    <a class="button"
        asp-controller="Cart" asp-action="Index"
        asp-route-returnurl="@ViewContext.HttpContext.Request.PathAndQuery()">
-       <i class="fa fa-shopping-cart"></i>
+        <img src="~/lib/Images/cart.png" />
     </a>
 </div>
