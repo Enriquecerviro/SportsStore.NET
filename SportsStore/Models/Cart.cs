@@ -1,16 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace SportsStore.Models
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public class Cart
     {
         private List<CartLine> lineCollection = new List<CartLine>();
+
         /// <summary>
         /// Adds the item.
         /// </summary>
@@ -34,22 +33,26 @@ namespace SportsStore.Models
                 line.Quantity += quantity;
             }
         }
+
         /// <summary>
         /// Removes the line.
         /// </summary>
         /// <param name="product">The product.</param>
         public virtual void RemoveLine(Product product) =>
             lineCollection.RemoveAll(l => l.Product.ProductID == product.ProductID);
+
         /// <summary>
         /// Computes the total value.
         /// </summary>
         /// <returns></returns>
         public virtual decimal ComputeTotalValue() =>
             lineCollection.Sum(e => e.Product.Price * e.Quantity);
+
         /// <summary>
         /// Clears this instance.
         /// </summary>
         public virtual void Clear() => lineCollection.Clear();
+
         /// <summary>
         /// Gets the lines.
         /// </summary>
@@ -60,7 +63,7 @@ namespace SportsStore.Models
     }
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public class CartLine
     {
@@ -71,6 +74,7 @@ namespace SportsStore.Models
         /// The cart line identifier.
         /// </value>
         public int CartLineID { get; set; }
+
         /// <summary>
         /// Gets or sets the product.
         /// </summary>
@@ -78,6 +82,7 @@ namespace SportsStore.Models
         /// The product.
         /// </value>
         public Product Product { get; set; }
+
         /// <summary>
         /// Gets or sets the quantity.
         /// </summary>

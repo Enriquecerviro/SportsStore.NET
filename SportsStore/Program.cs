@@ -1,15 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 
 namespace SportsStore
 {
-    #region Program Class    
+    #region Program Class
+
     /// <summary>
     /// Es la clase que se encarga del bootstrapping antes de pasarle el control a `Startup`
     /// </summary>
@@ -26,6 +21,7 @@ namespace SportsStore
         {
             CreateHostBuilder(args).Build().Run();
         }
+
         /// <summary>
         /// Creates the host builder.
         /// </summary>
@@ -39,5 +35,6 @@ namespace SportsStore
                         options => options.ValidateScopes = false);
                 });
     }
-    #endregion
+
+    #endregion Program Class
 }

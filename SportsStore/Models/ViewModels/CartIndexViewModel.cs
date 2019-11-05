@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace SportsStore.Models.ViewModels
+﻿namespace SportsStore.Models.ViewModels
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public class CartIndexViewModel
     {
@@ -17,6 +12,7 @@ namespace SportsStore.Models.ViewModels
         /// The cart.
         /// </value>
         public Cart Cart { get; set; }
+
         /// <summary>
         /// Gets or sets the return URL.
         /// </summary>

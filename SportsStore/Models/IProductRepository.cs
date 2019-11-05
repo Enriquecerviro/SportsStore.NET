@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Linq;
 
 namespace SportsStore.Models
 {
     #region Interfaz RepositorioProducto
+
     /// <summary>
     /// Usamos IQueryable para permitir una llamada que obtenga una secuencia
     /// de objetos Producto, de esta manera una clase que depende de esta interfaz
@@ -22,5 +20,6 @@ namespace SportsStore.Models
         /// </value>
         IQueryable<Product> Products { get; }
     }
-    #endregion
+
+    #endregion Interfaz RepositorioProducto
 }

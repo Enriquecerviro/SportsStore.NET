@@ -1,15 +1,10 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 
 namespace SportsStore.Infraestructure
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public static class SessionExtensions
     {
@@ -23,6 +18,7 @@ namespace SportsStore.Infraestructure
         {
             session.SetString(key, JsonConvert.SerializeObject(value));
         }
+
         /// <summary>
         /// Gets the json.
         /// </summary>

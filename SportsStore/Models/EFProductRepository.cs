@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Linq;
 
 namespace SportsStore.Models
 {
-    #region EFProductRepository : IProductRepository    
+    #region EFProductRepository : IProductRepository
+
     /// <summary>
     /// Esta clase implementa la interfaz IProductRepository y consigue los datos usando
     /// el Entity Framework Core . Este repositorio(EFProductRepository) lo que hace es
@@ -24,6 +22,7 @@ namespace SportsStore.Models
         {
             context = ctx;
         }
+
         /// <summary>
         /// Gets the products.
         /// </summary>
@@ -32,5 +31,6 @@ namespace SportsStore.Models
         /// </value>
         public IQueryable<Product> Products => context.Products;
     }
-    #endregion
+
+    #endregion EFProductRepository : IProductRepository
 }

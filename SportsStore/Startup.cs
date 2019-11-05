@@ -1,19 +1,16 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using SportsStore.Models;
-using Microsoft.EntityFrameworkCore;
 
 #region Clase Startup
+
 /// <summary>
-/// 
+///
 /// </summary>
 public class Startup
 {
@@ -41,7 +38,8 @@ public class Startup
     /// </value>
     public IConfiguration Configuration { get; }
 
-    #region Startup ConfigureServices    
+    #region Startup ConfigureServices
+
     /// <summary>
     /// "Loosely coupled components" significa que puedes hacer cambios en una parte
     /// de la app sin tener que hacer los cambios correspondientes en otra parte de la app,
@@ -51,8 +49,8 @@ public class Startup
     /// Este mth. tb lee el string connection y configura la app para conectarse a la DB.(El trabajo de leer JSON es de la clase Program.
     /// </summary>
     /// <remarks>
-    /// El método extendido `AddDbContext`(propio de IServiceCollection) prepara los servicios de EFC para la clase. 
-    /// El argumento para el método `AddDbContext` es una expresion lambda que recibe un objeto de opciones que 
+    /// El método extendido `AddDbContext`(propio de IServiceCollection) prepara los servicios de EFC para la clase.
+    /// El argumento para el método `AddDbContext` es una expresion lambda que recibe un objeto de opciones que
     /// configura la clase del contexto DB. En este caso configuré la DB con el mth. UseSqlServer y especifiqué una string de
     /// conexion proveída por la propiedad Configuration.
     /// </remarks>
@@ -71,11 +69,12 @@ public class Startup
         services.AddMvc();
         services.AddMemoryCache();
         services.AddSession();
-
     }
-    #endregion
 
-    #region Startup Configure    
+    #endregion Startup ConfigureServices
+
+    #region Startup Configure
+
     /// <summary>
     /// Configures the specified application. Este método se usa para preparar las tuberias solicitadas,
     /// que consisten en clases(middleware) que inspeccionan las pet.HTTP y generan respuestas.
@@ -98,7 +97,6 @@ public class Startup
         app.UseStaticFiles();
         app.UseSession();
         app.UseRouting();
-        
 
         app.UseEndpoints(endpoints =>
         {
@@ -140,8 +138,9 @@ public class Startup
             endpoints.MapControllerRoute("default", "{controller=Product}/{action=List}/{id?}");
         });
         SeedData.EnsurePopulated(app);
-
     }
-    #endregion
+
+    #endregion Startup Configure
 }
-#endregion
+
+#endregion Clase Startup

@@ -8,7 +8,8 @@ using System.Collections.Generic;
 
 namespace SportsStore.Infrastructure
 {
-    #region TAG HELPER CLASS "PageLinkTagHelper"    
+    #region TAG HELPER CLASS "PageLinkTagHelper"
+
     /// <summary>
     /// Este TagHelper llena un elemento div con elementos que corresponden a los productos por pagina.
     /// </summary>
@@ -18,6 +19,7 @@ namespace SportsStore.Infrastructure
 
     {
         private IUrlHelperFactory urlHelperFactory;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="PageLinkTagHelper"/> class.
         /// </summary>
@@ -26,6 +28,7 @@ namespace SportsStore.Infrastructure
         {
             urlHelperFactory = helperFactory;
         }
+
         /// <summary>
         /// Gets or sets the view context.
         /// </summary>
@@ -35,6 +38,7 @@ namespace SportsStore.Infrastructure
         [ViewContext]
         [HtmlAttributeNotBound]
         public ViewContext ViewContext { get; set; }
+
         /// <summary>
         /// Gets or sets the page model.
         /// </summary>
@@ -42,6 +46,7 @@ namespace SportsStore.Infrastructure
         /// The page model.
         /// </value>
         public PagingInfo PageModel { get; set; }
+
         /// <summary>
         /// Gets or sets the page action.
         /// </summary>
@@ -49,6 +54,7 @@ namespace SportsStore.Infrastructure
         /// The page action.
         /// </value>
         public string PageAction { get; set; }
+
         /// <summary>
         /// Gets or sets the page URL values.
         /// </summary>
@@ -58,6 +64,7 @@ namespace SportsStore.Infrastructure
         [HtmlAttributeName(DictionaryAttributePrefix = "page-url-")]
         public Dictionary<string, object> PageUrlValues { get; set; }
             = new Dictionary<string, object>();
+
         /// <summary>
         /// Gets or sets a value indicating whether [page classes enable].
         /// </summary>
@@ -65,6 +72,7 @@ namespace SportsStore.Infrastructure
         ///   <c>true</c> if [page classes enable]; otherwise, <c>false</c>.
         /// </value>
         public bool PageClassesEnable { get; set; } = false;
+
         /// <summary>
         /// Gets or sets the page class.
         /// </summary>
@@ -72,6 +80,7 @@ namespace SportsStore.Infrastructure
         /// The page class.
         /// </value>
         public string PageClass { get; set; }
+
         /// <summary>
         /// Gets or sets the page class normal.
         /// </summary>
@@ -79,6 +88,7 @@ namespace SportsStore.Infrastructure
         /// The page class normal.
         /// </value>
         public string PageClassNormal { get; set; }
+
         /// <summary>
         /// Gets or sets the page class selected.
         /// </summary>
@@ -86,6 +96,7 @@ namespace SportsStore.Infrastructure
         /// The page class selected.
         /// </value>
         public string PageClassSelected { get; set; }
+
         /// <summary>
         /// Synchronously executes the <see cref="T:Microsoft.AspNetCore.Razor.TagHelpers.TagHelper" /> with the given <paramref name="context" /> and
         /// <paramref name="output" />.
@@ -102,7 +113,7 @@ namespace SportsStore.Infrastructure
                 TagBuilder tag = new TagBuilder("a");
                 PageUrlValues["productPage"] = i;
                 tag.Attributes["href"] = urlHelper.Action(PageAction, PageUrlValues);
-                
+
                 if (PageClassesEnable)
                 {
                     tag.AddCssClass(PageClass);
@@ -114,5 +125,6 @@ namespace SportsStore.Infrastructure
             output.Content.AppendHtml(result.InnerHtml);
         }
     }
-    #endregion
+
+    #endregion TAG HELPER CLASS "PageLinkTagHelper"
 }

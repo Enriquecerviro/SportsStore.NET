@@ -1,8 +1,5 @@
 ﻿using SportsStore.Models;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Xunit;
 
 namespace SportsStore.Tests
@@ -36,10 +33,9 @@ que un producto es añadido, entonces quiero una nueva CartLine.
             Assert.Equal(p2, results[1].Product);
         }
 
-
         ///<summary>
         /// Sin embargo si ya existe un producto en el carro,
-        /// quiero incrementar la cantidad del carro actual y 
+        /// quiero incrementar la cantidad del carro actual y
         /// no crear otra.
         ///</summary>
         [Fact]
@@ -88,7 +84,6 @@ que un producto es añadido, entonces quiero una nueva CartLine.
             Assert.Equal(2, target.Lines.Count());
         }
 
-
         /// <summary>
         /// Calculates the cart total.
         /// </summary>
@@ -125,9 +120,5 @@ que un producto es añadido, entonces quiero una nueva CartLine.
             target.AddItem(p1, 1);
             target.AddItem(p2, 2);
         }
-
-
     }
-
 }
-

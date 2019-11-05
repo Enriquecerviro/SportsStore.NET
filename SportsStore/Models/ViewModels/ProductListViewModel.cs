@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using SportsStore.Models;
+﻿using System.Collections.Generic;
+
 namespace SportsStore.Models.ViewModels
 {
     #region VISTAMODELO de ProducList
+
     /// <summary>
     /// Para usar la clase TagHelper(PageLinkTH)  necesito proveer a la vista una instancia
     /// de "PagingInfo" . Para hacer esto voy a envolver todo los datos que voy a enviar desde el controlador
@@ -18,6 +18,7 @@ namespace SportsStore.Models.ViewModels
         /// The products.
         /// </value>
         public IEnumerable<Product> Products { get; set; }
+
         /// <summary>
         /// Gets or sets the paging information.
         /// </summary>
@@ -25,6 +26,7 @@ namespace SportsStore.Models.ViewModels
         /// The paging information.
         /// </value>
         public PagingInfo PagingInfo { get; set; }
+
         /// <summary>
         /// Gets or sets the current category.
         /// </summary>
@@ -32,7 +34,7 @@ namespace SportsStore.Models.ViewModels
         /// The current category.
         /// </value>
         public string CurrentCategory { get; set; }
-
     }
-    #endregion
+
+    #endregion VISTAMODELO de ProducList
 }

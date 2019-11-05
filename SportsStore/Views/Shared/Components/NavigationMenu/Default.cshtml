@@ -1,20 +1,19 @@
-﻿
-    <a class="navbar-item"
-        asp-action="List"
-        asp-controller="Product"
-        asp-route-category="">
-        Home
-    </a>
+﻿<a class="navbar-item"
+   asp-action="List"
+   asp-controller="Product"
+   asp-route-category="">
+    Home
+</a>
 
-    @foreach( string category in Model)
-    {
-        
-        <a class="navbar-item
+@foreach (string category in Model)
+{
+
+    <a class="navbar-item
            @(category==ViewBag.SelectedCategory ? "pure-material-button-contained": "pure-material-button-text")"
-           asp-action="List"
-           asp-controller="Product"
-           asp-route-category="@category"
-           asp-route-productPage="1">
-            @category
-        </a>
-    }
+       asp-action="List"
+       asp-controller="Product"
+       asp-route-category="@category"
+       asp-route-productPage="1">
+        @category
+    </a>
+}

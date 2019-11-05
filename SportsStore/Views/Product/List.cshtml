@@ -7,13 +7,12 @@ the same method will return £1,002.30.
 @model ProductsListViewModel
 @foreach (var p in Model.Products)
 {
-    @Html.Partial("ProductSummary",p)
+    @Html.Partial("ProductSummary", p)
 }
 <div page-model="@Model.PagingInfo" page-action="List"
      page-classes-enable="true"
      page-class="pure-material-button-text"
      page-class-normal="pure-material-button-text"
      page-class-selected="pure-material-button-contained"
-     page-url-category="@Model.CurrentCategory"
-     >
+     page-url-category="@Model.CurrentCategory">
 </div>

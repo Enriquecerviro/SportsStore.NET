@@ -3,8 +3,9 @@
 namespace SportsStore.Migrations
 {
     #region partial class Initial : Migration
+
     /// <summary>
-    /// 
+    ///
     /// </summary>
     /// <seealso cref="Microsoft.EntityFrameworkCore.Migrations.Migration" />
     public partial class Initial : Migration
@@ -62,5 +63,6 @@ namespace SportsStore.Migrations
                 name: "Products");
         }
     }
-    #endregion
+
+    #endregion partial class Initial : Migration
 }

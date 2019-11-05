@@ -1,15 +1,9 @@
-﻿
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace SportsStore.Models
 {
-    #region ApplicationDbContext : DbContext    
+    #region ApplicationDbContext : DbContext
+
     /// <summary>
     /// La clase `database context class` es el puente entre la app y EFC y proveé acceso
     /// a los datos persistidos de la app usando objetos del modelo(Producto en este caso(mayormente))
@@ -23,6 +17,7 @@ namespace SportsStore.Models
         /// <param name="options">The options.</param>
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
         : base(options) { }
+
         /// <summary>
         /// Gets or sets the products. Propiedad que nos permite acceder a los datos persistidos.
         /// </summary>
@@ -30,6 +25,7 @@ namespace SportsStore.Models
         /// The products.
         /// </value>
         public DbSet<Product> Products { get; set; }
+
         /// <summary>
         /// Gets or sets the orders.
         /// </summary>
@@ -38,5 +34,6 @@ namespace SportsStore.Models
         /// </value>
         public DbSet<Order> Orders { get; set; }
     }
-    #endregion
+
+    #endregion ApplicationDbContext : DbContext
 }

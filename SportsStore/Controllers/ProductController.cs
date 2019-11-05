@@ -1,15 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SportsStore.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using SportsStore.Models.ViewModels;
-
+using System.Linq;
 
 namespace SportsStore.Controllers
 {
-    #region ProductController Class    
+    #region ProductController Class
+
     /// <summary>
     /// Cuando se necesite crear una instancia de esta clase para manejar una peticion HTTP
     /// va a ver que el constructor necesita un objeto que implementa la interfaz IProductRepository.
@@ -29,6 +26,7 @@ namespace SportsStore.Controllers
         /// The repository
         /// </summary>
         private IProductRepository repository;
+
         /// <summary>
         /// The page size. Este campo especifica que quiero 4 productos por página.
         /// </summary>
@@ -44,7 +42,7 @@ namespace SportsStore.Controllers
         }
 
         /// <summary>
-        /// Lists the specified category. He añadido un param adicional <paramref name="productPage"/> que obliga a cuando el 
+        /// Lists the specified category. He añadido un param adicional <paramref name="productPage"/> que obliga a cuando el
         /// cuando llame al constructor sin parametros(List()), mi llamada va a ser tratada en verdad como si fuese
         /// List(1). El efecto conseguido es que cuando se invoque sin argumentos siempre renderize la primera página.
         /// Dentro del cuerpo del mth consigo los objetos Product, ordenados por la clave primaria, desechamos los objetos Producto
@@ -57,11 +55,11 @@ namespace SportsStore.Controllers
         /// <param name="category">The category.</param>
         /// <param name="productPage">The product page.</param>
         /// <returns></returns>
-        public ViewResult List(string category ,int productPage = 1)
+        public ViewResult List(string category, int productPage = 1)
            => View(new ProductsListViewModel
            {
                Products = repository.Products
-               .Where(p => category == null || p.Category==category)
+               .Where(p => category == null || p.Category == category)
                 .OrderBy(p => p.ProductID)
                 .Skip((productPage - 1) * PageSize)
                 .Take(PageSize),
@@ -71,13 +69,12 @@ namespace SportsStore.Controllers
                    ItemsPerPage = PageSize,
                    TotalItems = category == null ?
                    repository.Products.Count() :
-                   repository.Products.Where(e=>
+                   repository.Products.Where(e =>
                    e.Category == category).Count()
                },
                CurrentCategory = category
            });
-
     }
-    #endregion
-}
 
+    #endregion ProductController Class
+}

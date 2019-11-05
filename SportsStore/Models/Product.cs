@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace SportsStore.Models
+﻿namespace SportsStore.Models
 {
     #region Clase Product
+
     /// <summary>
     /// Como es un e-commerce, el modelo más importante será esta clase
     /// </summary>
@@ -18,6 +14,7 @@ namespace SportsStore.Models
         /// The product identifier.
         /// </value>
         public int ProductID { get; set; }
+
         /// <summary>
         /// Gets or sets the name.
         /// </summary>
@@ -25,6 +22,7 @@ namespace SportsStore.Models
         /// The name.
         /// </value>
         public string Name { get; set; }
+
         /// <summary>
         /// Gets or sets the description.
         /// </summary>
@@ -32,6 +30,7 @@ namespace SportsStore.Models
         /// The description.
         /// </value>
         public string Description { get; set; }
+
         /// <summary>
         /// Gets or sets the price.
         /// </summary>
@@ -39,6 +38,7 @@ namespace SportsStore.Models
         /// The price.
         /// </value>
         public decimal Price { get; set; }
+
         /// <summary>
         /// Gets or sets the category.
         /// </summary>
@@ -47,5 +47,6 @@ namespace SportsStore.Models
         /// </value>
         public string Category { get; set; }
     }
-    #endregion
+
+    #endregion Clase Product
 }

@@ -4,9 +4,7 @@ using SportsStore.Controllers;
 using SportsStore.Models;
 using SportsStore.Models.ViewModels;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Xunit;
 
 namespace SportsStore.Tests
@@ -39,8 +37,8 @@ namespace SportsStore.Tests
             Assert.True(prodArray.Length == 2);
             Assert.Equal("P4", prodArray[0].Name);
             Assert.Equal("P5", prodArray[1].Name);
-
         }
+
         [Fact]
         public void Can_Send_Pagination_View_Model()
         {

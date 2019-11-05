@@ -1,14 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SportsStore.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace SportsStore.Components
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     /// <seealso cref="Microsoft.AspNetCore.Mvc.ViewComponent" />
     public class NavigationMenuViewComponent : ViewComponent
@@ -23,6 +21,7 @@ namespace SportsStore.Components
         {
             repository = repo;
         }
+
         /// <summary>
         /// Invokes this instance.
         /// </summary>
@@ -34,8 +33,7 @@ namespace SportsStore.Components
                 .Select(x => x.Category)
                 .Distinct()
                 .OrderBy(x => x).AsQueryable()
-                )
-                ;
+                );
         }
     }
 }

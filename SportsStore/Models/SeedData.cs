@@ -1,21 +1,19 @@
 ﻿using Microsoft.AspNetCore.Builder;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using System.Linq;
 
 namespace SportsStore.Models
 {
-    #region SeedData Class    
+    #region SeedData Class
+
     /// <summary>
     /// Clase que provee a la DB de los datos necesarios
     /// </summary>
     public class SeedData
     {
         /// <summary>
-        /// Ensures the populated. Este mth. recibe un argumento IApplicationBuilder, que 
+        /// Ensures the populated. Este mth. recibe un argumento IApplicationBuilder, que
         /// es la interfaz usada en el mth `Configure` de la clase `Startup` para registrar los
         /// componentes middleware para manejar las peticiones HTTP, asi que aqui es donde aseguro
         /// que la DB tiene contenido.
@@ -100,9 +98,11 @@ namespace SportsStore.Models
                         Price = 1200
                     }
              );
+                //context.Entry(app).State = EntityState.Modified; ESTARIA BIEN SABER QUE HACE ESTA LINEA
                 context.SaveChanges();
             }
         }
     }
-    #endregion
+
+    #endregion SeedData Class
 }

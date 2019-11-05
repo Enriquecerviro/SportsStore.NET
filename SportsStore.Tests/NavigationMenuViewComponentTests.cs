@@ -2,17 +2,15 @@
 using Moq;
 using SportsStore.Components;
 using SportsStore.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Xunit;
 
 namespace SportsStore.Tests
 {
     /// <summary>
     /// the unit test for my ability to produce a category list is relatively simple. the goal is to create a list thatis sorted in alphabetical order and contains no duplicates, and the simplest way to do this is to supply
-    /// some test data that does have duplicate categories and that is not in order, pass this to the tag helper 
+    /// some test data that does have duplicate categories and that is not in order, pass this to the tag helper
     /// class, and assert that the data has been properly cleaned u
     /// </summary>
     public class NavigationMenuViewComponentTests
@@ -43,7 +41,8 @@ namespace SportsStore.Tests
             },
             results));
         }
-        void Indicates_Selected_Category()
+
+        private void Indicates_Selected_Category()
         {
             // Arrange
             string categoryToSelect = "Apples";

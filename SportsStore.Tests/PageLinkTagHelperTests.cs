@@ -4,9 +4,7 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 using Moq;
 using SportsStore.Infrastructure;
 using SportsStore.Models.ViewModels;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -74,8 +72,6 @@ printed page is narrow. I have not added a newline character; if I did, the test
                 + @"<a href=""Test/Page3"">3</a>",
                 output.Content.GetContent()
             );
-
-
         }
     }
 }

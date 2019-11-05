@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace SportsStore.Controllers
 {
-    public class OrderController: Controller
+    public class OrderController : Controller
     {
         private IOrderRepository repository;
         private Cart cart;
@@ -14,10 +14,13 @@ namespace SportsStore.Controllers
             repository = repoService;
             cart = cartService;
         }
+
         /// <summary>
         /// Lists this instance. Selecciona todos los objetos Order en el repo que tienen el
         /// valor 'Shipped' en 'false' y los pasa a la vista por defecto. Este action method se
-        /// usará para pintar una lista de 'unShipped' pedidos para el administrador.
+        /// usará para pintar una lista de 'unShipped' pedidos para el administrador. Para ello usaremos
+        /// una vista Razor con un elemento `table` para pintar detalles de uno y otro, incluidos que productos
+        /// han sido comprados.
         /// </summary>
         /// <returns></returns>
         public ViewResult List() =>
@@ -28,7 +31,7 @@ namespace SportsStore.Controllers
         /// que es usado para localizar el objeto Order corrrespondiente del repositorio de
         /// la forma que la propiedad 'Shipped' pueda ser seteada a true y guardada.
         /// <para>
-        /// Para pintar la lista de unShipped orders, usare una vista razor con un elemento 
+        /// Para pintar la lista de unShipped orders, usare una vista razor con un elemento
         /// `table` para pintar algunos detalles, como qué productos se han comprado.
         /// </para>
         /// </summary>
@@ -39,7 +42,7 @@ namespace SportsStore.Controllers
         {
             Order order = repository.Orders
                 .FirstOrDefault(o => o.OrderID == orderID);
-            if( order != null)
+            if (order != null)
             {
                 order.Shipped = true;
                 repository.SaveOrder(order);
@@ -47,9 +50,8 @@ namespace SportsStore.Controllers
             return RedirectToAction(nameof(List));
         }
 
-
-
         public ViewResult Checkout() => View(new Order());
+
         [HttpPost]
         public IActionResult Checkout(Order order)
         {
@@ -68,12 +70,11 @@ namespace SportsStore.Controllers
                 return View(order);
             }
         }
+
         public ViewResult Completed()
         {
             cart.Clear();
             return View();
         }
-
-
     }
 }
