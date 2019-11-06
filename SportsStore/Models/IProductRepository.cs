@@ -19,6 +19,8 @@ namespace SportsStore.Models
         /// The products.
         /// </value>
         IQueryable<Product> Products { get; }
+
+        void SaveProduct(Product product);
     }
 
     #endregion Interfaz RepositorioProducto

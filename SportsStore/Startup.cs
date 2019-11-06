@@ -92,7 +92,6 @@ public class Startup
         {
             app.UseDeveloperExceptionPage();
         }
-
         app.UseStatusCodePages();
         app.UseStaticFiles();
         app.UseSession();
