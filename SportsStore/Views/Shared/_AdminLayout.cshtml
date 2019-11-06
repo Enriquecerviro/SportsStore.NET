@@ -12,6 +12,7 @@
 whatever page is rendered after they have saved a change. -->
 <body class="m-1 p-1">
     <div class="bg-info p-2"><h4>@ViewBag.Title</h4></div>
+
     @if (TempData["message"] != null)
     {
         <div class="alert alert-success">@TempData["message"]</div>
