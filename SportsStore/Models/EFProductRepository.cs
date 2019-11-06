@@ -63,6 +63,23 @@ namespace SportsStore.Models
             }
             context.SaveChanges();
         }
+
+        /// <summary>
+        /// Deletes the product.
+        /// </summary>
+        /// <param name="productID">The product identifier.</param>
+        /// <returns></returns>
+        public Product DeleteProduct(int productID)
+        {
+            Product dbEntry = context.Products
+                .FirstOrDefault(p => p.ProductID == productID);
+            if(dbEntry != null)
+            {
+                context.Products.Remove(dbEntry);
+                context.SaveChanges();
+            }
+            return dbEntry;
+        }
     }
 
     #endregion EFProductRepository : IProductRepository

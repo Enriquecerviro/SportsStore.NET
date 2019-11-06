@@ -8,8 +8,15 @@
 
     <title>@ViewBag.Title</title>
     <style>
-        .input-validation-error { border-color:red; background-color: #fee ;}
+        .input-validation-error {
+            border-color: red;
+            background-color: #fee;
+        }
     </style>
+    <script src="/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js">
+    </script>
 </head>
 <!--the benefit of dealing with the message in the template like this is that users will see it displayed on
 whatever page is rendered after they have saved a change. -->

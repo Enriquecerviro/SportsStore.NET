@@ -18,6 +18,7 @@ namespace SportsStore.Controllers
     public class AdminController : Controller
     {
         private IProductRepository repository;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="AdminController"/> class.
         /// </summary>
@@ -26,11 +27,13 @@ namespace SportsStore.Controllers
         {
             repository = repo;
         }
+
         /// <summary>
         /// Indexes this instance.
         /// </summary>
         /// <returns></returns>
         public ViewResult Index() => View(repository.Products);
+
         /// <summary>
         /// Edits the specified product identifier.
         /// </summary>
@@ -39,6 +42,7 @@ namespace SportsStore.Controllers
         public ViewResult Edit(int productId) =>
             View(repository.Products
                 .FirstOrDefault(p => p.ProductID == productId));
+
         /// <summary>
         /// Edits the specified product.
         /// 
@@ -65,5 +69,21 @@ namespace SportsStore.Controllers
             }
         }
 
+        /// <summary>
+        /// Creates this instance.
+        /// </summary>
+        /// <returns></returns>
+        public IActionResult Create() => View("Edit", new Product());
+
+        [HttpPost]
+        public IActionResult Delete(int productId)
+        {
+            Product deletedProduct = repository.DeleteProduct(productId);
+            if(deletedProduct != null)
+            {
+                TempData["message"] = $"{deletedProduct.Name} ha sido borrado";
+            }
+            return RedirectToAction("Index");
+        }
     }
 }
