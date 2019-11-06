@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -59,7 +60,14 @@ public class Startup
     {
         services.AddDbContext<ApplicationDbContext>(options =>
         options.UseSqlServer(
-            Configuration.GetConnectionString("DefaultConnection")));
+           "Server=(localdb)\\MSSQLLocalDB;Database=SportsStore;Trusted_Connection=True;MultipleActiveResultSets=true"));
+        services.AddDbContext<AppIdentityDbContext>(options =>
+        options.UseSqlServer(
+            "Server=(localdb)\\MSSQLLocalDB;Database=Identity;Trusted_Connection=True;MultipleActiveResultSets=true"));
+
+        services.AddIdentity<IdentityUser, IdentityRole>()
+        .AddEntityFrameworkStores<AppIdentityDbContext>()
+        .AddDefaultTokenProviders();
 
         services.AddTransient<IProductRepository, EFProductRepository>();
 
@@ -95,6 +103,7 @@ public class Startup
         app.UseStatusCodePages();
         app.UseStaticFiles();
         app.UseSession();
+        app.UseAuthentication();
         app.UseRouting();
 
         app.UseEndpoints(endpoints =>

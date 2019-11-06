@@ -75,6 +75,11 @@ namespace SportsStore.Controllers
         /// <returns></returns>
         public IActionResult Create() => View("Edit", new Product());
 
+        /// <summary>
+        /// Deletes the specified product identifier. Aun sigue el problema para borrar un elemento que ha sido enviado alguna vez.
+        /// </summary>
+        /// <param name="productId">The product identifier.</param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Delete(int productId)
         {
