@@ -1,4 +1,6 @@
-﻿namespace SportsStore.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace SportsStore.Models
 {
     #region Clase Product
 
@@ -21,6 +23,7 @@
         /// <value>
         /// The name.
         /// </value>
+        [Required(ErrorMessage = "Introduce un nombre de producto correcto")]
         public string Name { get; set; }
 
         /// <summary>
@@ -29,6 +32,7 @@
         /// <value>
         /// The description.
         /// </value>
+        [Required(ErrorMessage ="Porfavor introduzca descripción. ")]
         public string Description { get; set; }
 
         /// <summary>
@@ -37,6 +41,9 @@
         /// <value>
         /// The price.
         /// </value>
+        [Required]
+        [Range(0.01, double.MaxValue,
+            ErrorMessage = "Porfavor introduzca un numero positivo")]
         public decimal Price { get; set; }
 
         /// <summary>
@@ -45,6 +52,7 @@
         /// <value>
         /// The category.
         /// </value>
+        [Required(ErrorMessage ="Porfavor especifíca una categoría.")]
         public string Category { get; set; }
     }
 
