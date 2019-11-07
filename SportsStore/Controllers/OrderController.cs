@@ -1,20 +1,31 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SportsStore.Models;
 using System.Linq;
 
 namespace SportsStore.Controllers
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="Microsoft.AspNetCore.Mvc.Controller" />
     public class OrderController : Controller
     {
         private IOrderRepository repository;
         private Cart cart;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="OrderController"/> class.
+        /// </summary>
+        /// <param name="repoService">The repo service.</param>
+        /// <param name="cartService">The cart service.</param>
         public OrderController(IOrderRepository repoService, Cart cartService)
         {
             repository = repoService;
             cart = cartService;
         }
 
+        
         /// <summary>
         /// Lists this instance. Selecciona todos los objetos Order en el repo que tienen el
         /// valor 'Shipped' en 'false' y los pasa a la vista por defecto. Este action method se
@@ -23,6 +34,7 @@ namespace SportsStore.Controllers
         /// han sido comprados.
         /// </summary>
         /// <returns></returns>
+        [Authorize]
         public ViewResult List() =>
             View(repository.Orders.Where(o => !o.Shipped));
 
@@ -38,6 +50,7 @@ namespace SportsStore.Controllers
         /// <param name="orderID">The order identifier.</param>
         /// <returns></returns>
         [HttpPost]
+        [Authorize]
         public IActionResult MarkShipped(int orderID)
         {
             Order order = repository.Orders

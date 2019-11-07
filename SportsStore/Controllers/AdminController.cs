@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SportsStore.Models;
 
@@ -15,6 +16,7 @@ namespace SportsStore.Controllers
     ///  in the database as the view model.
     /// </summary>
     /// <seealso cref="Microsoft.AspNetCore.Mvc.Controller" />
+    [Authorize]
     public class AdminController : Controller
     {
         private IProductRepository repository;

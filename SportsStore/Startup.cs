@@ -102,9 +102,12 @@ public class Startup
         }
         app.UseStatusCodePages();
         app.UseStaticFiles();
-        app.UseSession();
-        app.UseAuthentication();
+      
+        app.UseSession(); 
         app.UseRouting();
+        app.UseAuthentication();
+        app.UseAuthorization();
+
 
         app.UseEndpoints(endpoints =>
         {
@@ -146,6 +149,7 @@ public class Startup
             endpoints.MapControllerRoute("default", "{controller=Product}/{action=List}/{id?}");
         });
         SeedData.EnsurePopulated(app);
+        IdentitySeedData.EnsurePopulated(app);
     }
 
     #endregion Startup Configure
