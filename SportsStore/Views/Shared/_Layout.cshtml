@@ -10,6 +10,8 @@
     <link rel="stylesheet" asp-href-include="/lib/fontawesome/css/*.css" />
     <link rel="stylesheet" asp-href-include="/lib/bootstrap/css/bulma.css" />
     <link rel="stylesheet" asp-href-include="/lib/bootstrap/css/Botones.css " />
+    <link rel="stylesheet" asp-href-include="/lib/css/navBar.css" />
+    <script src="~/lib/js/navBar.js" type="text/javascript"></script>
 </head>
 <body>
 
@@ -66,12 +68,14 @@
         </div>
     </nav>
 
-    <div class="row m-1 p-1">
-        <div id="categories" class="col-3">
+    <div>
+        <div id="categories">
         </div>
-        <div class="col-9">
+        <div>
             @RenderBody()
         </div>
     </div>
+    @{ Html.RenderPartial("_Footer"); }
+
 </body>
 </html>
