@@ -5,17 +5,22 @@
     Layout = "_AdminLayout";
 }
 <div class="text-danger" asp-validation-summary="All"></div>
-<form asp-action="Login" asp-controller="Account" method="post">
-    <input type="hidden" asp-for="ReturnUrl" />
-    <div class="form-group">
-        <label asp-for="Name"></label>
-        <div><span asp-validation-for="Name" class="text-danger"></span></div>
-        <input asp-for="Name" class="form-control" />
-    </div>
-    <div class="form-group">
-        <label asp-for="Password"></label>
-        <div><span asp-validation-for="Password" class="text-danger"></span></div>
-        <input asp-for="Password" class="form-control" />
-    </div>
-    <button class="btn btn-primary" type="submit">Log In</button>
-</form>
+
+<div class="plantillaForm">
+    <label style="display: block">Inciar Sesión</label>
+    <form class="loginForm" asp-action="Login" asp-controller="Account" method="post">
+        <input type="hidden" asp-for="ReturnUrl" />
+
+        <label class="pure-material-textfield-outlined" asp-for="Name">
+            <input asp-for="Name" placeholder=" " />
+            <span asp-validation-for="Name"> Nombre </span>
+        </label>
+
+        <label class="pure-material-textfield-outlined" asp-for="Password">
+            <input placeholder=" " asp-for="Password"  />
+            <span asp-validation-for="Password"> Password </span>
+        </label>
+
+        <button class="pure-material-button-text" type="submit">Log In</button>
+    </form>
+</div>

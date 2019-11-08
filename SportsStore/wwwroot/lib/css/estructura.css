@@ -1,0 +1,24 @@
+﻿.contenedorG {
+    width: 100%;
+}
+
+.menu {
+    float:left;
+    display: grid;
+}
+.contenido{
+    margin-left:80px;
+    width: 80%;
+    float:left;
+
+}
+.loginForm {
+    display:inline-grid;
+}
+.plantillaForm{
+    
+    margin:1px 450px 60px 450px;
+    padding: 64px, 0px,86px,120px;
+
+
+}

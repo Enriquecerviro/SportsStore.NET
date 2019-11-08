@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" asp-href-include="lib/bootstrap/dist/css/*.min.css" />
     <link rel="stylesheet" asp-href-include="lib/bootstrap/lib/css/*.css" />
+    <link rel="stylesheet" asp-href-include="/lib/css/tablas.css" />
+    <link rel="stylesheet" asp-href-include="/lib/css/textfield.css" />
+    <link rel="stylesheet" asp-href-include="/lib/css/Botones.css " />
+    <link rel="stylesheet" asp-href-include="/lib/css/estructura.css" />
 
     <title>@ViewBag.Title</title>
     <style>
@@ -26,7 +30,7 @@ whatever page is rendered after they have saved a change. -->
             <h4>@ViewBag.Title</h4>
         </div>
         <div class="col-2">
-            <a class="btn btn-sm btn-primary"
+            <a class="pure-material-button-contained"
                asp-action="Logout" asp-controller="Account">Log Out</a>
         </div>
     </div>
