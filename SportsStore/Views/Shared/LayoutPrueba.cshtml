@@ -13,7 +13,6 @@
     <link rel="stylesheet" asp-href-include="/lib/css/navBar.css" />
     <link rel="stylesheet" asp-href-include="/lib/css/estructura.css" />
 
-
     <script src="~/lib/js/navBar.js" type="text/javascript"></script>
 </head>
 <body>
@@ -24,16 +23,11 @@
 
         <div class="menu">
             @await Component.InvokeAsync("NavigationMenu")
-
         </div>
 
         <div class="contenido">
             @RenderBody()
         </div>
-
     </div>
-    
-
-    @{ Html.RenderPartial("_Footer"); }
 </body>
 </html>
